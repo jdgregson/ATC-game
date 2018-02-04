@@ -1,0 +1,71 @@
+/**
+ * This file is part of ATC Game
+ * License: GPLv3
+ * Authors: Jonathan Gregson <jdgregson@gmail.com>
+ */
+
+body {
+    background-color: #000;
+    overflow: hidden;
+    font-family: Courier New;
+}
+
+.bogie {
+    position: absolute;
+}
+
+.bogie-id {
+    color: yellow;
+    margin-top: 5px;
+    margin-top: -18px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.bogie-id:hover {
+    background-color: black;
+    z-index: 1000;
+    position: absolute;
+    border: 1px dashed;
+    width: 57px;
+    padding: 3px;
+    margin-top: -22px;
+}
+
+.bogie-id.left {
+    margin-left: -60px;
+    width: 75px;
+}
+
+.bogie-id.left:hover {
+    margin-left: -64px !important;
+}
+
+.bogie-id.right{
+    margin-left: 22px;
+}
+
+.bogie-id.right:hover {
+    padding-left: 28px;
+    margin-left: -7px;
+}
+
+.bogie.commercial {
+    color: yellow;
+}
+
+.bogie-symbol {
+    width: 11px;
+    height: 11px;
+    text-align: center;
+    line-height: 12px;
+    position: absolute;
+    z-index: 99999;
+}
+
+.track.commercial {
+    position: absolute;
+    background-color: yellow;
+    width: 1px;
+    height: 1px;
+}
