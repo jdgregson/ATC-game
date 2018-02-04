@@ -182,4 +182,4 @@ class Bogie {
 		this._boundEast = e;
 		this._boundWest = w;
 	}
-}
+};
