@@ -10,11 +10,11 @@ body {
     font-family: Courier New;
 }
 
-.bogie {
+.aircraft {
     position: absolute;
 }
 
-.bogie-id {
+.aircraft-id {
     color: yellow;
     margin-top: 5px;
     margin-top: -18px;
@@ -22,7 +22,7 @@ body {
     cursor: pointer;
 }
 
-.bogie-id:hover {
+.aircraft-id:hover {
     background-color: black;
     z-index: 1000;
     position: absolute;
@@ -32,29 +32,29 @@ body {
     margin-top: -22px;
 }
 
-.bogie-id.left {
+.aircraft-id.left {
     margin-left: -60px;
     width: 75px;
 }
 
-.bogie-id.left:hover {
+.aircraft-id.left:hover {
     margin-left: -64px !important;
 }
 
-.bogie-id.right{
+.aircraft-id.right{
     margin-left: 22px;
 }
 
-.bogie-id.right:hover {
+.aircraft-id.right:hover {
     padding-left: 28px;
     margin-left: -7px;
 }
 
-.bogie.commercial {
+.aircraft.commercial {
     color: yellow;
 }
 
-.bogie-symbol {
+.aircraft-symbol {
     width: 11px;
     height: 11px;
     text-align: center;

@@ -4,7 +4,7 @@
  * Authors: Jonathan Gregson <jdgregson@gmail.com>
  */
 
-class Bogie {
+class Aircraft {
   constructor(x, y, altitude = 0, airspeed = 0, heading = 0, callsign = 'ZZ000',
       type = 'commercial') {
     this._xPos = x;
@@ -14,33 +14,33 @@ class Bogie {
     this._heading = heading;
     this._callsign = callsign;
     this._type = type;
-    this._squawk = Bogie.randomInt(1000, 9999);
+    this._squawk = Aircraft.randomInt(1000, 9999);
     this._xStep = 0;
     this._yStep = 1;
     this._maxTracks = 100;
     this._trackOffset = 4;
     this._tracks = [];
-    this._bogieId;
-    this._bogieIndicator;
+    this._aircraftId;
+    this._aircraftIndicator;
     this._boundNorth = -100;
     this._boundSouth = window.innerHeight;
     this._boundEast = window.innerWidth;
     this._boundWest = -100;
 
-    this.setBogieIndicator(x, y);
-    this._bogieId = this.getBogieId();
-    this._bogieIndicator.appendChild(this._bogieId);
+    this.setAircraftIndicator(x, y);
+    this._aircraftId = this.getAircraftId();
+    this._aircraftIndicator.appendChild(this._aircraftId);
   }
 
   update() {
     this.addTrack();
     this._xPos += this._xStep*this._airspeed;
     this._yPos += this._yStep*this._airspeed;
-    this._bogieIndicator.removeChild(this._bogieId);
-    this._bogieId = this.getBogieId();
-    this._bogieIndicator.appendChild(this._bogieId);
-    this._bogieIndicator.style.left = `${this._xPos}px`;
-    this._bogieIndicator.style.top = `${this._yPos}px`;
+    this._aircraftIndicator.removeChild(this._aircraftId);
+    this._aircraftId = this.getAircraftId();
+    this._aircraftIndicator.appendChild(this._aircraftId);
+    this._aircraftIndicator.style.left = `${this._xPos}px`;
+    this._aircraftIndicator.style.top = `${this._yPos}px`;
   }
 
   addTrack() {
@@ -116,38 +116,39 @@ class Bogie {
     this._callsign = callsign;
   }
 
-  getBogieId() {
+  getAircraftId() {
     let idPos = this.getHeading()>=0&&this.getHeading()<=180?'right':'left';
-    this._bogieIdObj = document.createElement('div');
-    this._bogieIdObj.setAttribute('class', `bogie-id ${this._type} ${idPos}`);
-    this._bogieIdObj.innerHTML = `
+    this._aircraftIdObj = document.createElement('div');
+    this._aircraftIdObj.setAttribute('class',
+        `aircraft-id ${this._type} ${idPos}`);
+    this._aircraftIdObj.innerHTML = `
         <div>${this.getCallsign()}</div>
         <div>HD ${this.getHeading()}&#186;</div>
         <div>${this.getAirspeed()} kt<div>
         <div>FL ${this.getAltitude()}<div>`;
-    return this._bogieIdObj;
+    return this._aircraftIdObj;
   }
 
-  getBogieIdText() {
-    return this._bogieId.innerText;
+  getAircraftIdText() {
+    return this._aircraftId.innerText;
   }
 
-  setBogieId(id) {
-    this._bogieId.innerHTML = id;
+  setAircraftId(id) {
+    this._aircraftId.innerHTML = id;
   }
 
-  getBogieIndicator() {
-    return this._bogieIndicator;
+  getAircraftIndicator() {
+    return this._aircraftIndicator;
   }
 
-  setBogieIndicator(x, y) {
-    this._bogieIndicator = document.createElement('div');
-    this._bogieIndicator.setAttribute('class', `bogie ${this._type}`);
-    this._bogieIndicator.style.left = `${x}px`;
-    this._bogieIndicator.style.top = `${y}px`;
+  setAircraftIndicator(x, y) {
+    this._aircraftIndicator = document.createElement('div');
+    this._aircraftIndicator.setAttribute('class', `aircraft ${this._type}`);
+    this._aircraftIndicator.style.left = `${x}px`;
+    this._aircraftIndicator.style.top = `${y}px`;
     if(this._type === 'commercial') {
-      this._bogieIndicator.innerHTML =
-          `<div class="bogie-symbol commercial">&#9633;</div>`;
+      this._aircraftIndicator.innerHTML =
+          `<div class="aircraft-symbol commercial">&#9633;</div>`;
     }
   }
 

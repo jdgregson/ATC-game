@@ -24,7 +24,7 @@ class Core {
     return `${Core.randStr(Core.randInt(2, 3))}${Core.randInt(100, 999)}`;
   }
 
-  static spawnBogie(spawnOnEdge = false) {
+  static spawnAircraft(spawnOnEdge = false) {
     let x = Core.randInt(0, window.innerWidth);
     let y = Core.randInt(0, window.innerHeight);
     if(spawnOnEdge) {
@@ -34,7 +34,7 @@ class Core {
         x = 0;
       }
     }
-    let bogie = new Bogie(
+    let aircraft = new Aircraft(
       x,                      // X coordinate
       y,                      // Y coordinate
       Core.randInt(1, 450),   // altitude
@@ -42,9 +42,9 @@ class Core {
       Core.randInt(0, 360),   // heading
       Core.randFlightNumber() // callsign
     );
-    bogie.setHeading(Core.randInt(0, 360));
-    bogie.setAirspeed(Core.randInt(150, 600));
-    document.body.appendChild(bogie.getBogieIndicator());
-    return bogie;
+    aircraft.setHeading(Core.randInt(0, 360));
+    aircraft.setAirspeed(Core.randInt(150, 600));
+    document.body.appendChild(aircraft.getAircraftIndicator());
+    return aircraft;
   }
 };
