@@ -146,10 +146,19 @@ class Aircraft {
     this._aircraftIndicator.setAttribute('class', `aircraft ${this._type}`);
     this._aircraftIndicator.style.left = `${x}px`;
     this._aircraftIndicator.style.top = `${y}px`;
+    let character = '?';
     if(this._type === 'commercial') {
-      this._aircraftIndicator.innerHTML =
-          `<div class="aircraft-symbol commercial">&#9633;</div>`;
+      character = '&#9633;';
+    } else if(this._type === 'civil') {
+      character = '&#8420;';
+    } else if(this._type === 'freighter') {
+      character = '&#11197;';
+    } else if(this._type === 'military') {
+      character = '&#11096;';
     }
+
+    this._aircraftIndicator.innerHTML =
+        `<div class="aircraft-symbol ${this._type}">${character}</div>`;
   }
 
   getAirspeed() {

@@ -50,7 +50,7 @@ body {
     margin-left: -7px;
 }
 
-.aircraft.commercial {
+.aircraft {
     color: yellow;
 }
 
@@ -63,7 +63,7 @@ body {
     z-index: 99999;
 }
 
-.track.commercial {
+.track {
     position: absolute;
     background-color: yellow;
     width: 1px;
