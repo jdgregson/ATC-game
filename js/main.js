@@ -16,7 +16,7 @@ let timers = [];
 window.addEventListener('load', () => {
   // spawn some initial flights
   for(let i of Array(initialAircraft)) {
-    aircraft.push(Core.spawnAircraft());
+    aircraft.push(Spawner.spawnAircraft(true));
   }
 
   // set a timer to randomly change flight headings
@@ -43,15 +43,11 @@ window.addEventListener('load', () => {
     }
   }, randomizeSpeed);
 
-  // set a timer to clean up orphaned flight tracks
+  // set a timer to with a garbage collector clean up orphaned flight tracks
   timers.push(new GarbageCollector(cleanupJobs, updateSpeed));
 
-  // set a timer to spawn some more aircraft
-  window.aircraftSpawner = self.setInterval(() => {
-    if(aircraft.length < maxAircraft) {
-      aircraft.push(Core.spawnAircraft(true));
-    }
-  }, spawnSpeed);
+  // set a timer with a spawner to create random aircraft
+  timers.push(new Spawner(aircraft, spawnSpeed, maxAircraft));
 
   // set a timer to update all flight positions and remove them if they fly
   // off the screen
