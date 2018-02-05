@@ -1,8 +1,11 @@
 /**
  * This file is part of ATC Game
+ *   - Source Code: https://github.com/jdgregson/ATC-game
+ *   - Live Game: http://jdgregson.com/atc-game/
  * License: GPLv3
  * Authors: Jonathan Gregson <jdgregson@gmail.com>
  */
+
 
 class Aircraft {
   constructor(x, y, altitude = 0, airspeed = 0, heading = 0, callsign = 'ZZ000',
@@ -10,8 +13,7 @@ class Aircraft {
     this._xPos = x;
     this._yPos = y;
     this._altitude = altitude;
-    this._airspeed = airspeed;
-    this._heading = heading;
+    this._airspeed = airspeed/100;
     this._callsign = callsign;
     this._type = type;
     this._squawk = Aircraft.randomInt(1000, 9999);
@@ -27,6 +29,7 @@ class Aircraft {
     this._boundEast = window.innerWidth;
     this._boundWest = -100;
 
+    this.setHeading(heading);
     this.setAircraftIndicator(x, y);
     this._aircraftId = this.getAircraftId();
     this._aircraftIndicator.appendChild(this._aircraftId);
