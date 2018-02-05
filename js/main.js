@@ -6,11 +6,12 @@
  * Authors: Jonathan Gregson <jdgregson@gmail.com>
  */
 
-let initialAircraft = 10;
-let maxAircraft = 15;
-let updateSpeed = 500;
+
+let initialAircraft = 3;
+let maxAircraft = 7;
+let updateSpeed = 1500;
 let spawnSpeed = 3000;
-let randomizeSpeed = 1000;
+let randomizeSpeed = 1500;
 let aircraft = [];
 let cleanupJobs = [];
 let timers = [];

@@ -53,7 +53,7 @@ class Spawner {
     rand = Core.randInt(1, 10);
     if(rand < 4) {
       type = 'civil';
-      altitude = Core.randInt(1, 750);
+      altitude = Core.randInt(1, 75);
       airspeed = Core.randInt(100, 300);
     } else if(rand < 6) {
       type = 'freighter';
