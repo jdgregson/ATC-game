@@ -124,11 +124,17 @@ class Aircraft {
     this._aircraftIdObj = document.createElement('div');
     this._aircraftIdObj.setAttribute('class',
         `aircraft-id ${this._type} ${idPos}`);
+    let fl = this.getAltitude();
+    if(fl < 10) {
+      fl = `00${fl}`;
+    } else if(fl < 100) {
+      fl = `0${fl}`;
+    }
     this._aircraftIdObj.innerHTML = `
         <div>${this.getCallsign()}</div>
         <div>HD ${this.getHeading()}&#186;</div>
         <div>${this.getAirspeed()} kt<div>
-        <div>FL ${this.getAltitude()}<div>`;
+        <div>FL ${fl}<div>`;
     return this._aircraftIdObj;
   }
 
