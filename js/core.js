@@ -1,8 +1,11 @@
 /**
  * This file is part of ATC Game
+ *   - Source Code: https://github.com/jdgregson/ATC-game
+ *   - Live Game: http://jdgregson.com/atc-game/
  * License: GPLv3
  * Authors: Jonathan Gregson <jdgregson@gmail.com>
  */
+
 
 class Core {
   constructor() {
